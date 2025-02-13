@@ -1,0 +1,72 @@
+Assignment: Event Management API
+
+Objective
+
+Develop an Event Management API using Python and FastAPI. The API will provide features to
+create, manage, and track events and attendees. Core functionalities include event scheduling,
+registration, attendee check-ins, and status management.
+
+Requirements
+
+1. Database Models
+
+Event:
+- event_id: Integer (Primary Key)
+- name: String
+- description: String
+- start_time: DateTime
+- end_time: DateTime
+- location: String
+- max_attendees: Integer
+- status: Enum ('scheduled', 'ongoing', 'completed', 'canceled')
+
+Attendee:
+- attendee_id: Integer (Primary Key)
+- first_name: String
+- last_name: String
+- email: String (Unique)
+- phone_number: String
+- event_id: Foreign Key (references Event)
+
+Page 1
+
+Assignment: Event Management API
+
+- check_in_status: Boolean
+
+2. Endpoints
+
+1. Create Event: Endpoint to create new events. Status is initialized as 'scheduled'.
+2. Update Event: Endpoint to update event details and modify the status.
+3. Register Attendee: Allows users to register for an event, checking max_attendees.
+4. Check-in Attendee: Marks an attendee as checked in.
+5. List Events: Fetch events with filters (status, location, date).
+6. List Attendees: Retrieve attendees for a specific event with optional filters.
+
+3. Business Logic
+
+1. Prevent registration if the max_attendees limit is reached.
+2. Automatically set event status to 'completed' if the end_time has passed.
+3. Support bulk attendee check-in via a CSV upload.
+
+4. Error Handling
+
+1. Use appropriate HTTP status codes (e.g., 400 for validation errors, 404 for not found).
+2. Provide meaningful error messages for client and server issues.
+
+5. Testing
+
+1. Write unit tests to validate core business logic:
+- Registration limits
+- Check-ins
+
+Page 2
+
+Assignment: Event Management API
+
+- Automatic status updates
+2. Ensure API endpoints behave as expected under various conditions.
+
+Extra Credit
+
+Implement JWT Authentication to secure endpoints for authorized users only.

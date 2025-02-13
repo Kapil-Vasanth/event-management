@@ -1,0 +1,8 @@
+# filepath: /Users/study2/Desktop/GitProjects/event-management/render.yaml
+services:
+  - type: web
+    name: event-management-api
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 8000"
